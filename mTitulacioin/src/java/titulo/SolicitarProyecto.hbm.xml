@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 10, 2016 11:22:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="titulo.SolicitarProyecto" table="solicitar_proyecto" schema="public" optimistic-lock="version">
+        <composite-id name="id" class="titulo.SolicitarProyectoId">
+            <key-property name="idEstudiante" type="big_decimal">
+                <column name="id_estudiante" precision="131089" scale="0" />
+            </key-property>
+            <key-property name="idProyecto" type="big_decimal">
+                <column name="id_proyecto" precision="131089" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="estudiante" class="titulo.Estudiante" update="false" insert="false" fetch="select">
+            <column name="id_estudiante" precision="131089" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="proyecto" class="titulo.Proyecto" update="false" insert="false" fetch="select">
+            <column name="id_proyecto" precision="131089" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="justificacion" type="string">
+            <column name="justificacion" />
+        </property>
+        <property name="fechaSolicitud" type="string">
+            <column name="fecha_solicitud" />
+        </property>
+    </class>
+</hibernate-mapping>

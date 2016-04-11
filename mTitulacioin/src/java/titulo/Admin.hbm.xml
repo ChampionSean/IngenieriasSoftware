@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 10, 2016 11:22:11 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="titulo.Admin" table="admin" schema="public" optimistic-lock="version">
+        <id name="id" type="big_decimal">
+            <column name="id" precision="131089" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" />
+        </property>
+        <property name="apellidop" type="string">
+            <column name="apellidop" />
+        </property>
+        <property name="apellidom" type="string">
+            <column name="apellidom" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" />
+        </property>
+        <property name="fechaContra" type="string">
+            <column name="fecha_contra" />
+        </property>
+        <set name="estudiantes" table="estudiante" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_admin" precision="131089" scale="0" />
+            </key>
+            <one-to-many class="titulo.Estudiante" />
+        </set>
+    </class>
+</hibernate-mapping>
