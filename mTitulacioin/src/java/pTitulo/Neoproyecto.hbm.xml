@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 26, 2016 2:53:15 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="pTitulo.Neoproyecto" optimistic-lock="version" schema="public" table="neoproyecto">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="pTitulo.Profesor" fetch="select" name="profesor">
+      <column name="id_profeso"/>
+    </many-to-one>
+    <property name="nombre" type="string">
+      <column name="nombre"/>
+    </property>
+    <property name="areaInteres" type="string">
+      <column name="area_interes"/>
+    </property>
+    <property name="cupo" type="java.lang.Integer">
+      <column name="cupo"/>
+    </property>
+    <property name="fechaPublicacion" type="date">
+      <column length="13" name="fecha_publicacion"/>
+    </property>
+    <property name="tiempoAprox" type="java.lang.Integer">
+      <column name="tiempo_aprox"/>
+    </property>
+    <property name="duracionAprox" type="java.lang.Integer">
+      <column name="duracion_aprox"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column name="descripcion"/>
+    </property>
+  </class>
+</hibernate-mapping>

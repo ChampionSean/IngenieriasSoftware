@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Editar Proyecto</title>
+        <style>
+
+            input[type=text], select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            input[type=submit] {
+                width: 40%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+            div {
+                border-radius: 5px;
+                background-color: #00ccff;
+                padding: 40px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSessionProfesor()}"/>
+        </h:form>
+
+        <h:form>
+            <h:panelGrid id="panel2" columns="2" border="1"
+                         cellpadding="5" cellspacing="1">
+                <f:facet name="header">
+                    <h:outputText value="Editar Proyecto"></h:outputText>
+                </f:facet>
+                <h:outputLabel value="Proyecto ID:"></h:outputLabel>
+                <h:inputText value="#{neoproyecto.id}" id="id"></h:inputText>
+                <h:outputLabel value=""/>
+                <h:commandButton value="Buscar" action="#{neoproyecto.getbyid()}" ></h:commandButton>
+                <h:outputLabel value="Nombre del Proyecto:"/>
+                <h:inputText value="#{neoproyecto.nombre}" id="nombre"></h:inputText>
+                <h:outputLabel value="Área de Interes:"/>
+                <h:inputText value="#{neoproyecto.areaInteres}" id="area"></h:inputText>
+                <h:outputLabel value="Cupo del Proyecto:"/>
+                <h:inputText value="#{neoproyecto.cupo}" id="cupo"></h:inputText>
+                <h:outputLabel value="Descripción del Proyecto:"/>
+                <h:inputText value="#{neoproyecto.descripcion}" id="descripcion"/>
+                <h:outputLabel value="Fecha de publicación:"/>
+                <p:calendar value="#{neoproyecto.fechaPublicacion}" id="fecha"></p:calendar>
+                <h:outputLabel value=""/>
+                <h:commandButton value="Editar" action="#{neoproyecto.editar()}"></h:commandButton>
+            </h:panelGrid>
+        </h:form>
+        <h:link value="Publicar Proyecto" outcome="PublicarProyectoIH"/>
+    </h:body>
+</html>

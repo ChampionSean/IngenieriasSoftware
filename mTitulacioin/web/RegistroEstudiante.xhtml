@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Registro Estudiantes</title>
+    <style>
+             input[type=text], select {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              box-sizing: border-box;
+          }            input[type=submit] {
+              width: 40%;
+              background-color: #4CAF50
+
+;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+          }            input[type=submit]:hover {
+              background-color: #45a049
+
+;
+          }            div {
+              border-radius: 5px;
+              background-color: #00ccff
+
+;
+              padding: 40px;
+          }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSessionAdmin()}"/>
+        </h:form>
+        <h:form>
+            <h:panelGrid id="panel1" columns="2" border="1"
+                         cellpadding="5" cellspacing="1">
+                <f:facet name="header">
+                    <h:outputText value="Llena formulario"/>
+                </f:facet>
+                <h:outputLabel value="Nombre Completo:"/>
+                <h:inputText value="#{estudiante.nombre}" id="nombre"/>
+                <h:outputLabel value="Apellido Materno:"/>
+                <h:inputText value="#{estudiante.apellidom}" id="apellidom"/>
+                <h:outputLabel value="Apellido Paterno:"/>
+                <h:inputText value="#{estudiante.apellidop}" id="apellidop"/>
+                <h:outputLabel value="Email:"/>
+                <h:inputText value="#{estudiante.email}" id="email"/>
+                <h:outputLabel value="Password"/>
+                <h:inputText value="#{estudiante.password}" id="pass"/>
+                <h:outputLabel value="Numero de cuenta:"/>
+                <h:inputText value="#{estudiante.noCuenta}" id="id"/>
+                <h:outputLabel value="PorcentajeCreditos:"/>
+                <h:inputText value="#{estudiante.porcentajeCredi}" id="grado"/>
+                <h:outputLabel value="Carrera:"/>
+                <h:inputText value="#{estudiante.carrera}" id="inv"/>
+                
+    
+                <f:facet name="footer">
+                    <h:commandButton value="Guardar" action="#{estudiante.guardarEstudiante()}">
+                        </h:commandButton>
+                </f:facet>
+            </h:panelGrid>
+             
+        </h:form>
+         
+    </h:body>
+</html>
+
