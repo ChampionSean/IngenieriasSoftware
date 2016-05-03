@@ -5,68 +5,129 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    
+    
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Desplegar navegación</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+ 
+  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Inicio</a></li>
+      <li><a href="#">Editar Perfil</a></li>
+      <li><h:link value="Editar Proyectos publicados" outcome="EditarProyectoIH"/></li>
+      
+    </ul>
+  
+    <ul class="nav navbar-nav navbar-right">
+        <li>Conectado como: Favio Miranda</li>
+      <li><h:form class="navbar-form navbar-left">
+            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSessionProfesor()}" class="btn btn-primary btn-xs"/>
+        </h:form></li>
+        
+    </ul>
+  </div>
+</nav>
+
+
+    
     <h:head>
         <title>Publicar Proyecto</title>
-        <style>
-
-            input[type=text], select {
-                width: 100%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
-
-            input[type=submit] {
-                width: 40%;
-                background-color: #4CAF50;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-
-            input[type=submit]:hover {
-                background-color: #45a049;
-            }
-
-            div {
-                border-radius: 5px;
-                background-color: #00ccff;
-                padding: 40px;
-            }
-        </style>
     </h:head>
+    <div align="center">
+    <h3>Publicación de proyecto</h3>
+        <img src="logoUnam.png" height="115" width="100"></img>
+         <div class="col-sm-12">
+          <small class="text-muted">*Aquí podras publicar proyectos para ser mostrados a estudiantes en proceso de titulación.</small>
+        </div>
+    </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+    <div class="container">
+            <div class="row">
+            <div class="col-xs-offset-2 col-sm-offset-3 col-md-offset-3 col-xs-8 col-sm-6 col-md-6">
     <h:body>
-        <h:form>
-            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSessionProfesor()}"/>
-        </h:form>
-
-        <h:form>
-            <h:panelGrid id="panel1" columns="2" border="1"
-                         cellpadding="5" cellspacing="1">
-                <f:facet name="header">
-                    <h:outputText value="Publicar Proyecto"/>
-                </f:facet>
-                <h:outputLabel value="Nombre del Proyecto:"/>
-                <h:inputText value="#{neoproyecto.nombre}" id="nombre"/>
-                <h:outputLabel value="Áreas de interes"/>
-                <h:inputText value="#{neoproyecto.areaInteres}" id="area"/>
-                <h:outputLabel value="Cupo del Proyecto(No. Alumnos):"/>
-                <h:inputText value="#{neoproyecto.cupo}" id="cupo"/>
-                <h:outputLabel value="Descripción del Proyecto:"/>
-                <h:inputText value="#{neoproyecto.descripcion}" id="descripcion"/>
-                <h:outputLabel value="Fecha de publicación:"/>
+        
+        <h:form class="form-horizontal" role="form">
+               
+            <div class="form-group">
+                <label for="nombre" class="col-lg-3 control-label">Nombre del Proyecto</label>
+                <div class="col-xs-7">
+                <h:inputText class="form-control" value="#{neoproyecto.nombre}" id="nombre"/>
+                </div>
+                <div class="col-sm-12">
+          <small class="text-muted">*Da un titulo 'agradable' para que los estudiantes se interesen.</small>
+        </div>
+            </div>
+            
+                <div class="form-group">
+                                        
+                <label for="area" class="col-lg-3 control-label">Habilidades Necesarias</label>
+                <div class="col-xs-8">
+                <h:inputTextarea rows="3" class="form-control" value="#{neoproyecto.areaInteres}" id="area"/>
+                </div>
+                <div class="col-sm-12">
+          <small class="text-muted">*Escribe las areas de conocimiento necesarias en este proyecto.</small>
+        </div>
+                </div>
+            
+                <div class="form-group">
+                <label for="cupo" class="col-lg-3 control-label">Limite maximo de alumnos</label>
+                <div class="col-xs-2">
+                <h:inputText class="form-control" value="#{neoproyecto.cupo}" id="cupo"/>
+                </div>
+                <div class="col-sm-12">
+          <small class="text-muted">*Da un limite de los alumnos que pueden participar</small>
+        </div>
+                </div>
+            
+                <div class="form-group">
+                <label for="descripcion" class="col-lg-3 control-label">Actividades a realizar</label>
+                <div class="col-xs-8">
+                <h:inputTextarea rows="3" class="form-control" value="#{neoproyecto.descripcion}" id="descripcion"/>
+                </div>
+                <div class="col-sm-12">
+          <small class="text-muted">*Describe brevemente las actividades a realizar en el proyecto.</small>
+        </div>
+                </div>
+                
+                <div class="form-group">
+                <label for="fecha" class="col-lg-3 control-label">Fecha de Inicio</label>
+                <div class="col-xs-8">
                 <p:calendar value="#{neoproyecto.fechaPublicacion}" id="fecha" />
-                <h:outputLabel value=""/>
-            </h:panelGrid>
-            <h:commandButton value="Publicar Proyecto" action="#{neoproyecto.guardarProyecto()}">
+                </div>
+                <div class="col-sm-12">
+          <small class="text-muted">*Define la fecha en que tu proyecto dará inicio.</small>
+        </div>
+                </div>
+                
+            
+            <h:commandButton value="Publicar Proyecto" action="#{neoproyecto.guardarProyecto()}" class="btn btn-primary">
             </h:commandButton>
         </h:form>
-        <h:link value="Editar Proyecto" outcome="EditarProyectoIH"/>
+        
     </h:body>
+    </div>
+    </div>
+        <footer class="footer">
+        <p>&copy; BonsaiSoftware <img src="BS.jpg" height="25" width="25"></img> 2016</p>
+      </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"/>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"/>
 </html>

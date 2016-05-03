@@ -12,6 +12,7 @@ import util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import pTitulo.Neoproyecto;
+import pTitulo.Profesor;
 
 /**
  *
@@ -19,7 +20,6 @@ import pTitulo.Neoproyecto;
  */
 public class ProyectoDao {
 
-    static int aux = 1;
     private Session session;
     
     public ProyectoDao(){
@@ -27,15 +27,16 @@ public class ProyectoDao {
     }
     
     public void agregarProyecto(Neoproyecto proyecto) {
-        proyecto.setId(aux);
+        
+        proyecto.setId(getNumProyectos());
         Transaction trans;
         try {
             trans = session.beginTransaction();
             session.save(proyecto);
             trans.commit();
+            proyecto.mensajePublicar = true;
         } catch (Exception e) {
         }
-        aux++;
     }
 
     public void editarProyecto(Neoproyecto proyecto) {
@@ -44,6 +45,7 @@ public class ProyectoDao {
             trans = session.beginTransaction();
             session.update(proyecto);
             trans.commit();
+            proyecto.mensajeEditar = true;
         } catch (Exception e) {
         }
     }
@@ -124,5 +126,22 @@ public class ProyectoDao {
             session.getTransaction().rollback();
         }
         return listaProyectos;
+    }
+    
+        public static int getNumProyectos() {
+        List<Profesor> proyectoLista = new ArrayList();
+        int num=0;
+        Transaction trans;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trans = session.beginTransaction();
+            Query query = session.createQuery("select count(*) from neoproyecto");
+            num = (int) query.uniqueResult();
+            proyectoLista = query.list();
+
+            trans.commit();
+        } catch (Exception e) {
+        }
+        return num;
     }
 }
