@@ -3,11 +3,14 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated May 4, 2016 2:55:34 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pTitulo.Profesor" table="profesor" schema="public">
+    <class name="pTitulo2.Profesor" table="profesor" schema="public" optimistic-lock="version">
         <id name="noCuenta" type="int">
             <column name="no_cuenta" />
-            <generator class="assigned"></generator>
+            <generator class="foreign">
+                <param name="property">usuarios</param>
+            </generator>
         </id>
+        <one-to-one name="usuarios" class="pTitulo2.Usuarios" constrained="true"></one-to-one>
         <property name="nombre" type="string">
             <column name="nombre" />
         </property>
@@ -33,13 +36,13 @@
             <key>
                 <column name="id_profeso" />
             </key>
-            <one-to-many class="pTitulo.Neoproyecto" />
+            <one-to-many class="pTitulo2.Neoproyecto" />
         </set>
         <set name="estudiantes" table="estudiante" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_profesor" />
             </key>
-            <one-to-many class="pTitulo.Estudiante" />
+            <one-to-many class="pTitulo2.Estudiante" />
         </set>
     </class>
 </hibernate-mapping>

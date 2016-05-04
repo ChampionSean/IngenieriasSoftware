@@ -3,78 +3,149 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <h:head>
         <title>Registro Estudiantes</title>
-    <style>
-             input[type=text], select {
-              width: 100%;
-              padding: 12px 20px;
-              margin: 8px 0;
-              display: inline-block;
-              border: 1px solid #ccc;
-              border-radius: 4px;
-              box-sizing: border-box;
-          }            input[type=submit] {
-              width: 40%;
-              background-color: #4CAF50
-
-;
-              color: white;
-              padding: 14px 20px;
-              margin: 8px 0;
-              border: none;
-              border-radius: 4px;
-              cursor: pointer;
-          }            input[type=submit]:hover {
-              background-color: #45a049
-
-;
-          }            div {
-              border-radius: 5px;
-              background-color: #00ccff
-
-;
-              padding: 40px;
-          }
-        </style>
     </h:head>
+     <nav class="navbar navbar-default" role="navigation">
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Desplegar navegación</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+ 
+  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Inicio</a></li>
+      <li><a href="#">Editar Perfil</a></li>
+      <li><h:link value="Editar Proyectos publicados" outcome="EditarProyectoIH"/></li>
+      
+    </ul>
+  
+    <ul class="nav navbar-nav navbar-right">
+        <li>Conectado como: Administrador1</li>
+      <li><h:form class="navbar-form navbar-left">
+            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSessionAdmin()}" class="btn btn-primary btn-xs"/>
+        </h:form></li>
+        
+    </ul>
+  </div>
+</nav>
+     <div class="container">
+            <div class="row">
+            <div class="col-xs-offset-2 col-sm-offset-3 col-md-offset-3 col-xs-8 col-sm-6 col-md-6">
     <h:body>
-        <h:form>
-            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSessionAdmin()}"/>
-        </h:form>
-        <h:form>
-            <h:panelGrid id="panel1" columns="2" border="1"
-                         cellpadding="5" cellspacing="1">
-                <f:facet name="header">
-                    <h:outputText value="Llena formulario"/>
-                </f:facet>
-                <h:outputLabel value="Nombre Completo:"/>
-                <h:inputText value="#{estudiante.nombre}" id="nombre"/>
-                <h:outputLabel value="Apellido Materno:"/>
-                <h:inputText value="#{estudiante.apellidom}" id="apellidom"/>
-                <h:outputLabel value="Apellido Paterno:"/>
-                <h:inputText value="#{estudiante.apellidop}" id="apellidop"/>
-                <h:outputLabel value="Email:"/>
-                <h:inputText value="#{estudiante.email}" id="email"/>
-                <h:outputLabel value="Password"/>
-                <h:inputText value="#{estudiante.password}" id="pass"/>
-                <h:outputLabel value="Numero de cuenta:"/>
-                <h:inputText value="#{estudiante.noCuenta}" id="id"/>
-                <h:outputLabel value="PorcentajeCreditos:"/>
-                <h:inputText value="#{estudiante.porcentajeCredi}" id="grado"/>
-                <h:outputLabel value="Carrera:"/>
-                <h:inputText value="#{estudiante.carrera}" id="inv"/>
+        
+        <table>
+            <tr>
+                <th>Registro Estudiantes</th>
+            </tr>
+            <tr>
+                <td>
+       <h:form class="form-horizontal" role="form">
+            
+                <div class="form-group">
+                <label for="nombre" class="col-lg-3 control-label"><img src="user-icon.png" height="30" width="30"></img></label>
+                <div class="col-xs-7">
+                <h:inputText pt:placeholder="nombre" class="form-control" value="#{estudiante.nombre}" id="nombre"/>
+                </div>
+               
+            </div>
+           
+                
+                <div class="form-group">
+                <label for="apellidom" class="col-lg-3 control-label"><img src="user-icon.png" height="30" width="30"></img></label>
+                <div class="col-xs-7">
+                    <h:inputText pt:placeholder="apellido materno" class="form-control" value="#{estudiante.apellidom}" id="apellidom"/>
+                </div>
+                
+            </div>
+                
+                
+                <div class="form-group">
+                <label for="apellidop" class="col-lg-3 control-label"><img src="user-icon.png" height="30" width="30"></img></label>
+                <div class="col-xs-7">
+                <h:inputText pt:placeholder="apellido paterno" class="form-control" value="#{estudiante.apellidop}" id="apellidop"/>
+                </div>
+                
+            </div>
+                
+               
+               <div class="form-group">
+                <label for="email" class="col-lg-3 control-label"><img src="ema.jpg" height="33" width="33"></img></label>
+                <div class="col-xs-7">
+                <h:inputText pt:placeholder="email" class="form-control" value="#{estudiante.email}" id="email"/>
+                </div>
+               
+            </div> 
+                
+               <div class="form-group">
+                <label for="pass" class="col-lg-3 control-label"><img src="candado.png" height="30" width="30"></img></label>
+                <div class="col-xs-7">
+                <h:inputText pt:placeholder="contraseña" class="form-control" value="#{estudiante.password}" id="pass"/>
+                </div>
+                
+            </div>
+                
+                
+               <div class="form-group">
+                <label for="id" class="col-lg-3 control-label"><img src="id_Icon.png" height="33" width="33"></img></label>
+                <div class="col-xs-7">
+                <h:inputText pt:placeholder="numero cuenta" class="form-control" value="#{estudiante.noCuenta}" id="id"/>
+                </div>
+                
+            </div>
+                
+                
+                <div class="form-group">
+                <label for="grado" class="col-lg-3 control-label">POrcentaje Creditos</label>
+                <div class="col-xs-7">
+                <h:inputText pt:placeholder="porcentaje creditos" class="form-control" value="#{estudiante.porcentajeCredi}" id="grado"/>
+                </div>
+                
+            </div>
+                
+               
+           
+                <div class="form-group">
+                <label for="inv" class="col-lg-3 control-label"><img src="estudiante.png" height="33" width="33"></img></label>
+                <div class="col-xs-7">
+                <h:inputText pt:placeholder="carrera" class="form-control" value="#{estudiante.carrera}" id="inv"/>
+                </div>
+                
+            </div>
+                
+                
                 
     
-                <f:facet name="footer">
-                    <h:commandButton value="Guardar" action="#{estudiante.guardarEstudiante()}">
+                
+                    <h:commandButton class="btn btn-primary" value="Guardar" action="#{estudiante.guardarEstudiante()}">
                         </h:commandButton>
-                </f:facet>
-            </h:panelGrid>
+                
+           
              
         </h:form>
+                </td>
+                </tr>
+        </table>
+        
+       
          
     </h:body>
+            </div>
+            </div>
+     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"/>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"/>
 </html>
 

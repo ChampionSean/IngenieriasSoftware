@@ -1,4 +1,4 @@
-package pTitulo;
+package pTitulo2;
 // Generated May 4, 2016 2:55:33 PM by Hibernate Tools 4.3.1
 
 
@@ -55,7 +55,7 @@ public class Neoproyecto  implements java.io.Serializable {
      @Id 
 
     
-    @Column(name="id", nullable=false)
+    @Column(name="id", unique=true, nullable=false)
     public int getId() {
         return this.id;
     }

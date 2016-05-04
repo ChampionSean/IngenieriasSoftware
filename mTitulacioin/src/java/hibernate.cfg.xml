@@ -15,5 +15,11 @@
     <mapping resource="pTitulo/Neoproyecto.hbm.xml"/>
     <mapping resource="pTitulo/Estudiante.hbm.xml"/>
     <mapping resource="pTitulo/Admin.hbm.xml"/>
+    <mapping resource="pTitulo2/SolicitarProyecto.hbm.xml"/>
+    <mapping resource="pTitulo2/Admin.hbm.xml"/>
+    <mapping resource="pTitulo2/Usuarios.hbm.xml"/>
+    <mapping resource="pTitulo2/Neoproyecto.hbm.xml"/>
+    <mapping resource="pTitulo2/Estudiante.hbm.xml"/>
+    <mapping resource="pTitulo2/Profesor.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -3,8 +3,8 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated May 4, 2016 2:55:34 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pTitulo.SolicitarProyecto" table="solicitar_proyecto" schema="public">
-        <composite-id name="id" class="pTitulo.SolicitarProyectoId">
+    <class name="pTitulo2.SolicitarProyecto" table="solicitar_proyecto" schema="public" optimistic-lock="version">
+        <composite-id name="id" class="pTitulo2.SolicitarProyectoId">
             <key-property name="idEstudiante" type="int">
                 <column name="id_estudiante" />
             </key-property>
@@ -12,7 +12,7 @@
                 <column name="id_proyecto" />
             </key-property>
         </composite-id>
-        <many-to-one name="estudiante" class="pTitulo.Estudiante" update="false" insert="false" fetch="select">
+        <many-to-one name="estudiante" class="pTitulo2.Estudiante" update="false" insert="false" fetch="select">
             <column name="id_estudiante" not-null="true" />
         </many-to-one>
         <property name="justificacion" type="string">

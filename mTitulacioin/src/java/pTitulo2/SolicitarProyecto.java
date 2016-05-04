@@ -1,4 +1,4 @@
-package pTitulo;
+package pTitulo2;
 // Generated May 4, 2016 2:55:33 PM by Hibernate Tools 4.3.1
 
 

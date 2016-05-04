@@ -1,4 +1,4 @@
-package pTitulo;
+package pTitulo2;
 // Generated May 4, 2016 2:55:33 PM by Hibernate Tools 4.3.1
 
 
@@ -45,6 +45,23 @@ public class SolicitarProyectoId  implements java.io.Serializable {
     }
 
 
+   public boolean equals(Object other) {
+         if ( (this == other ) ) return true;
+		 if ( (other == null ) ) return false;
+		 if ( !(other instanceof SolicitarProyectoId) ) return false;
+		 SolicitarProyectoId castOther = ( SolicitarProyectoId ) other; 
+         
+		 return (this.getIdEstudiante()==castOther.getIdEstudiante())
+ && (this.getIdProyecto()==castOther.getIdProyecto());
+   }
+   
+   public int hashCode() {
+         int result = 17;
+         
+         result = 37 * result + this.getIdEstudiante();
+         result = 37 * result + this.getIdProyecto();
+         return result;
+   }   
 
 
 }
