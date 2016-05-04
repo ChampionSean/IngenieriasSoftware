@@ -65,6 +65,21 @@ public class ProyectoDao {
         
     }
     
+        public List<Neoproyecto> getProyectosPorNombre(String nombreProyecto) {
+        List<Neoproyecto> listaProyectos = null;
+        try {
+            session.beginTransaction();
+            Query q = session.createQuery ("from Neoproyecto where nombre like '%" + nombreProyecto + "%'");
+            listaProyectos = (List<Neoproyecto>) q.list();
+            session.getTransaction().commit();
+            session.close();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        }
+        return listaProyectos;
+        
+    }
+    
     public List<Neoproyecto> recuperarProyectos() {
         List proyecto = new ArrayList();
         Neoproyecto proyecto1 = new Neoproyecto();
