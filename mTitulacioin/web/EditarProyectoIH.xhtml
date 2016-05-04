@@ -53,9 +53,9 @@
                     <h:outputText value="Editar Proyecto"></h:outputText>
                 </f:facet>
                 <h:outputLabel value="Proyecto ID:"></h:outputLabel>
-                <h:inputText value="#{neoproyecto.id}" id="id"></h:inputText>
+                <h:inputText value="#{neoproyecto.nombre}" id="id"></h:inputText>
                 <h:outputLabel value=""/>
-                <h:commandButton value="Buscar" action="#{neoproyecto.getbyid()}" ></h:commandButton>
+                <h:commandButton value="Buscar" action="#{neoproyecto.getbyNombre()}" ></h:commandButton>
                 <h:outputLabel value="Nombre del Proyecto:"/>
                 <h:inputText value="#{neoproyecto.nombre}" id="nombre"></h:inputText>
                 <h:outputLabel value="Área de Interes:"/>

@@ -206,6 +206,19 @@ public class Neoproyecto implements java.io.Serializable {
         ProyectoDao p = new ProyectoDao();
         return p.getProyectos();
     }
+    
+       public List<Neoproyecto> getbyNombre() {
+        ProyectoDao proyecto = new ProyectoDao();
+        List<Neoproyecto> l = proyecto.getProyectosPorNombre(nombre);
+        if(l.isEmpty()) return null;
+        nombre = l.get(0).nombre;
+        areaInteres = l.get(0).areaInteres;
+        cupo = l.get(0).cupo;
+        fechaPublicacion = l.get(0).fechaPublicacion;
+        descripcion = l.get(0).descripcion;
+        return l;
+    }
+    
 
 }
 
