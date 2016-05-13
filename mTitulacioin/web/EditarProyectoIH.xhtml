@@ -43,7 +43,7 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSessionProfesor()}"/>
+            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSesion()}"/>
         </h:form>
 
         <h:form>
@@ -52,10 +52,10 @@
                 <f:facet name="header">
                     <h:outputText value="Editar Proyecto"></h:outputText>
                 </f:facet>
-                <h:outputLabel value="Proyecto ID:"></h:outputLabel>
-                <h:inputText value="#{neoproyecto.nombre}" id="id"></h:inputText>
+                <h:outputLabel value="ID del Proyecto:"></h:outputLabel>
+                <h:inputText value="#{neoproyecto.id}" id="id"></h:inputText>
                 <h:outputLabel value=""/>
-                <h:commandButton value="Buscar" action="#{neoproyecto.getbyNombre()}" ></h:commandButton>
+                <h:commandButton value="Buscar" action="#{neoproyecto.getbyID()}" ></h:commandButton>
                 <h:outputLabel value="Nombre del Proyecto:"/>
                 <h:inputText value="#{neoproyecto.nombre}" id="nombre"></h:inputText>
                 <h:outputLabel value="Área de Interes:"/>

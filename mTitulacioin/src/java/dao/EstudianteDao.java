@@ -13,7 +13,8 @@ import org.hibernate.Query;
 import util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import pTitulo.Estudiante;
+import pTitulo2.Estudiante;
+import pTitulo2.Usuarios;
 
 /**
  *
@@ -28,12 +29,15 @@ public class EstudianteDao {
     }
     
     public void agregarEstudiante(Estudiante proyecto) {
-        Transaction trans;
         try {
-            trans = session.beginTransaction();
+            session.beginTransaction();
+            session.save(new Usuarios(proyecto.getNoCuenta()));
+            proyecto.setUsuarios(new Usuarios(proyecto.getNoCuenta()));
             session.save(proyecto);
-            trans.commit();
+            session.getTransaction().commit();
         } catch (Exception e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
         }
         aux++;
     }

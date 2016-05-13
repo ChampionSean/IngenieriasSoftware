@@ -13,7 +13,8 @@ import org.hibernate.Query;
 import util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import pTitulo.Profesor;
+import pTitulo2.Profesor;
+import pTitulo2.Usuarios;
 
 /**
  *
@@ -29,6 +30,8 @@ public class ProfesorDao {
         Transaction trans;
         try {
             trans = session.beginTransaction();
+            session.save(new Usuarios(proyecto.getNoCuenta()));
+            proyecto.setUsuarios(new Usuarios(proyecto.getNoCuenta()));
             session.save(proyecto);
             trans.commit();
         } catch (Exception e) {

@@ -13,7 +13,7 @@
 
     <h:body>
         <h:form>
-            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSessionEstudiante()}"/>
+            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSesion()}"/>
         </h:form>
         <p:dataList value="#{neoproyecto.getProyectos()}" var="proyect" pt:data-inset="true" paginator="true" rows="2">
             <f:facet name="header">

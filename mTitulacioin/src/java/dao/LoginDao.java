@@ -9,10 +9,10 @@ package dao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import pTitulo.Admin;
-import pTitulo.Estudiante;
+import pTitulo2.Admin;
+import pTitulo2.Estudiante;
 import util.HibernateUtil;
-import pTitulo.Profesor;
+import pTitulo2.Profesor;
 
 /**
  *
@@ -41,23 +41,27 @@ public class LoginDao {
     }
     
     public Profesor getLoginProfesor(int cuenta) {
+        Profesor resultado=null;
         try {
-            Transaction tx = session.beginTransaction();
-            Query q = session.createQuery ("from Profesor as profesor where profesor.id = "+cuenta);
-            tx.commit();
-            return (Profesor) q.uniqueResult();
+            session.beginTransaction();
+            Query q = session.createQuery ("from Profesor as profesor where profesor.noCuenta = "+cuenta);
+            resultado = (Profesor) q.uniqueResult();
+            session.getTransaction().commit();
         } catch (Exception e) {
+            session.getTransaction().rollback();
         }
-        return null;
+        return resultado;
     }
     public Admin getLoginAdmin(int cuenta) {
+        Admin  resultado=null;
         try {
-            Transaction tx = session.beginTransaction();
+            session.beginTransaction();
             Query q = session.createQuery ("from Admin as admin where admin.id = " + cuenta);
-            tx.commit();
-            return (Admin) q.uniqueResult();
+            resultado = (Admin) q.uniqueResult();
+            session.getTransaction().commit();
         } catch (Exception e) {
+            session.getTransaction().rollback();
         }
-        return null;
+        return resultado;
     }
 }

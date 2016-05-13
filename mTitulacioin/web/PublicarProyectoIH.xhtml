@@ -33,9 +33,9 @@
     </ul>
   
     <ul class="nav navbar-nav navbar-right">
-        <li>Conectado como: Favio Miranda</li>
+        <li>Conectado como: #{logoutControlador.usuario}</li>
       <li><h:form class="navbar-form navbar-left">
-            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSessionProfesor()}" class="btn btn-primary btn-xs"/>
+            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSesion()}" class="btn btn-primary btn-xs"/>
         </h:form></li>
         
     </ul>

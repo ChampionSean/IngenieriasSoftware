@@ -2,8 +2,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <h:head>
@@ -27,15 +25,13 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Inicio</a></li>
-      <li><a href="#">Editar Perfil</a></li>
-      <li><h:link value="Editar Proyectos publicados" outcome="EditarProyectoIH"/></li>
       
     </ul>
   
     <ul class="nav navbar-nav navbar-right">
-        <li>Conectado como: Administrador1</li>
+        <li>Conectado como: #{logoutControlador.usuario}</li>
       <li><h:form class="navbar-form navbar-left">
-            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSessionAdmin()}" class="btn btn-primary btn-xs"/>
+            <h:commandButton value="Cerrar Sesión" action="#{logoutControlador.cerrarSesion()}" class="btn btn-primary btn-xs"/>
         </h:form></li>
         
     </ul>
@@ -108,7 +104,7 @@
                 
                 
                 <div class="form-group">
-                <label for="grado" class="col-lg-3 control-label">POrcentaje Creditos</label>
+                <label for="grado" class="col-lg-3 control-label">Porcentaje Creditos</label>
                 <div class="col-xs-7">
                 <h:inputText pt:placeholder="porcentaje creditos" class="form-control" value="#{estudiante.porcentajeCredi}" id="grado"/>
                 </div>

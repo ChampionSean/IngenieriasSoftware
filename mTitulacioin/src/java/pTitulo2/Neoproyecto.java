@@ -2,7 +2,10 @@ package pTitulo2;
 // Generated May 4, 2016 2:55:33 PM by Hibernate Tools 4.3.1
 
 
+import dao.ProyectoDao;
 import java.util.Date;
+import java.util.List;
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,6 +23,7 @@ import javax.persistence.TemporalType;
 @Table(name="neoproyecto"
     ,schema="public"
 )
+@ManagedBean
 public class Neoproyecto  implements java.io.Serializable {
 
 
@@ -32,6 +36,8 @@ public class Neoproyecto  implements java.io.Serializable {
      private Integer tiempoAprox;
      private Integer duracionAprox;
      private String descripcion;
+     public boolean mensajePublicar = false;
+     public boolean mensajeEditar = false;
 
     public Neoproyecto() {
     }
@@ -143,10 +149,50 @@ public class Neoproyecto  implements java.io.Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    
+    public void eliminar() {
+        ProyectoDao p = new ProyectoDao();
+        p.eliminarProyecto(id);
+    }
 
+    public void guardarProyecto() {
+        ProyectoDao p = new ProyectoDao();
+        p.agregarProyecto(this);
+    }
+    public void editar() {
+        ProyectoDao p = new ProyectoDao();
+        p.editarProyecto(this);
+    }
+    
+    public List<Neoproyecto> getProyectos(){
+        ProyectoDao p = new ProyectoDao();
+        return p.getProyectos();
+    }
+    
+       public List<Neoproyecto> getbyNombre() {
+        ProyectoDao proyecto = new ProyectoDao();
+        List<Neoproyecto> l = proyecto.getProyectosPorNombre(nombre);
+        if(l.isEmpty()) return null;
+        nombre = l.get(0).nombre;
+        areaInteres = l.get(0).areaInteres;
+        cupo = l.get(0).cupo;
+        fechaPublicacion = l.get(0).fechaPublicacion;
+        descripcion = l.get(0).descripcion;
+        return l;
+    }
 
-
-
+       public List<Neoproyecto> getbyID() {
+        ProyectoDao proyecto = new ProyectoDao();
+        List<Neoproyecto> l = proyecto. getPorID(id);
+        if(l.isEmpty()) return null;
+        nombre = l.get(0).nombre;
+        areaInteres = l.get(0).areaInteres;
+        cupo = l.get(0).cupo;
+        fechaPublicacion = l.get(0).fechaPublicacion;
+        descripcion = l.get(0).descripcion;
+        return l;
+    }
+       
 }
 
 

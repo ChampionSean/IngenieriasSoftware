@@ -2,9 +2,11 @@ package pTitulo2;
 // Generated May 4, 2016 2:55:33 PM by Hibernate Tools 4.3.1
 
 
+import dao.EstudianteDao;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,6 +30,7 @@ import org.hibernate.annotations.Parameter;
 @Table(name="estudiante"
     ,schema="public"
 )
+@ManagedBean
 public class Estudiante  implements java.io.Serializable {
 
 
@@ -221,8 +224,11 @@ public class Estudiante  implements java.io.Serializable {
         this.solicitarProyectos = solicitarProyectos;
     }
 
-
-
+     public void guardarEstudiante() {
+        System.out.println("Llegue1");
+        EstudianteDao p = new EstudianteDao();
+        p.agregarEstudiante(this);
+    }
 
 }
 

@@ -11,8 +11,8 @@ import org.hibernate.Query;
 import util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import pTitulo.Neoproyecto;
-import pTitulo.Profesor;
+import pTitulo2.Neoproyecto;
+import pTitulo2.Profesor;
 
 /**
  *
@@ -27,8 +27,7 @@ public class ProyectoDao {
     }
     
     public void agregarProyecto(Neoproyecto proyecto) {
-        
-        proyecto.setId(getNumProyectos());
+        proyecto.setId(getNumProyectos()+1);
         Transaction trans;
         try {
             trans = session.beginTransaction();

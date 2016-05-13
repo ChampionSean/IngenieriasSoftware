@@ -6,15 +6,10 @@
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/Reg0116</property>
     <property name="hibernate.connection.username">postgres</property>
-    <property name="hibernate.connection.password">postgres</property>
+    <property name="hibernate.connection.password">gorgonita999</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
-    <mapping resource="pTitulo/SolicitarProyecto.hbm.xml"/>
-    <mapping resource="pTitulo/Profesor.hbm.xml"/>
-    <mapping resource="pTitulo/Neoproyecto.hbm.xml"/>
-    <mapping resource="pTitulo/Estudiante.hbm.xml"/>
-    <mapping resource="pTitulo/Admin.hbm.xml"/>
     <mapping resource="pTitulo2/SolicitarProyecto.hbm.xml"/>
     <mapping resource="pTitulo2/Admin.hbm.xml"/>
     <mapping resource="pTitulo2/Usuarios.hbm.xml"/>

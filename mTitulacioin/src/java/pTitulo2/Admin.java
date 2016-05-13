@@ -4,6 +4,7 @@ package pTitulo2;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,6 +24,7 @@ import org.hibernate.annotations.Parameter;
 @Table(name="admin"
     ,schema="public"
 )
+@ManagedBean
 public class Admin  implements java.io.Serializable {
 
 

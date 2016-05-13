@@ -1,9 +1,10 @@
 package pTitulo2;
 // Generated May 4, 2016 2:55:33 PM by Hibernate Tools 4.3.1
 
-
+import dao.ProfesorDao;
 import java.util.HashSet;
 import java.util.Set;
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,6 +24,7 @@ import org.hibernate.annotations.Parameter;
 @Table(name="profesor"
     ,schema="public"
 )
+@ManagedBean
 public class Profesor  implements java.io.Serializable {
 
 
@@ -162,12 +164,16 @@ public class Profesor  implements java.io.Serializable {
     public Set getEstudiantes() {
         return this.estudiantes;
     }
-    
+
     public void setEstudiantes(Set estudiantes) {
         this.estudiantes = estudiantes;
     }
 
-
+    public String guardarProfesor() {
+        ProfesorDao p = new ProfesorDao();
+        p.agregarProfesor(this);
+        return "PublicarProyectoIH";
+    }
 
 
 }
